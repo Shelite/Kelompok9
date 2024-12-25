@@ -1,3 +1,5 @@
+<?php
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,4 +19,4 @@ class AddStatusToTasksTable extends Migration
             $table->dropColumn('task_status');
         });
     }
-} 
+}; 
