@@ -27,7 +27,6 @@
                 <div class="hidden md:flex space-x-6 items-center">
                     <a href="{{ url('/') }}" class="hover:text-indigo-200">Beranda</a>
                     <a href="{{ url('/about') }}" class="block px-3 py-2 rounded-md hover:bg-indigo-500">About</a>
-                    <a href="{{ url('/courses') }}" class="block px-3 py-2 rounded-md hover:bg-indigo-500">Kursus</a>
                     <a href="{{ url('/mentors') }}" class="block px-3 py-2 rounded-md hover:bg-indigo-500">Mentor</a>
                     @auth
                         <a href="{{ url('/dashboard') }}" class="bg-white text-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-100">Dashboard</a>
@@ -117,7 +116,11 @@
                         <p class="text-gray-600 mb-4">Belajar HTML, CSS, dan JavaScript dari dasar hingga mahir</p>
                         <div class="flex justify-between items-center">
                             <span class="text-indigo-600 font-semibold">Modul & Mentor</span>
-                            <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Lihat Detail</button>
+                            @auth
+                                <a href="{{ url('/courses') }}" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Lihat Detail</a>
+                            @else
+                                <a href="{{ route('login') }}" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Lihat Detail</a>
+                            @endauth
                         </div>
                     </div>
                 </div>
@@ -133,7 +136,11 @@
                         <p class="text-gray-600 mb-4">Buat aplikasi mobile dengan Flutter dan React Native</p>
                         <div class="flex justify-between items-center">
                             <span class="text-indigo-600 font-semibold">Modul & Mentor</span>
-                            <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Lihat Detail</button>
+                            @auth
+                                <a href="{{ url('/courses') }}" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Lihat Detail</a>
+                            @else
+                                <a href="{{ route('login') }}" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Lihat Detail</a>
+                            @endauth
                         </div>
                     </div>
                 </div>
@@ -149,7 +156,11 @@
                         <p class="text-gray-600 mb-4">Pelajari Data Science dan Machine Learning dengan Python</p>
                         <div class="flex justify-between items-center">
                             <span class="text-indigo-600 font-semibold">Modul & Mentor</span>
-                            <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Lihat Detail</button>
+                            @auth
+                                <a href="{{ url('/courses') }}" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Lihat Detail</a>
+                            @else
+                                <a href="{{ route('login') }}" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Lihat Detail</a>
+                            @endauth
                         </div>
                     </div>
                 </div>

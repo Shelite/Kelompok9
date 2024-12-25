@@ -10,6 +10,10 @@ use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminAssignmentController;
+use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\TaskController as AdminTaskController;
+use App\Http\Controllers\Admin\GradeController;
+use App\Http\Controllers\DashboardController;
 
 // Admin Routes
 Route::prefix('admin')->group(function() {
@@ -48,17 +52,60 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    // Dashboard
-    Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
-    
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    // Tambahkan route untuk materi
+    Route::get('/materi', function () {
+        return view('materi.web');
+    })->name('materi');
+
+    Route::get('/materi/mobile', function () {
+        return view('materi.mobile');
+    })->name('materi.mobile');
+
+    Route::get('/materi/data-science', function () {
+        return view('materi.data-science');
+    })->name('materi.data-science');
+
+    Route::get('/materi/cyber-security', function () {
+        return view('materi.cyber-security');
+    })->name('materi.cyber-security');
+
+    Route::get('/materi/uiux', function () {
+        return view('materi.uiux');
+    })->name('materi.uiux');
+
+    Route::get('/materi/cloud', function () {
+        return view('materi.cloud');
+    })->name('materi.cloud');
+
+    Route::get('/materi/python', function () {
+        return view('materi.python');
+    })->name('materi.python');
+
+    Route::get('/materi/os', function () {
+        return view('materi.os');
+    })->name('materi.os');
+
+    Route::get('/materi/ai', function () {
+        return view('materi.ai');
+    })->name('materi.ai');
+
     // Tambahkan route search di sini
     Route::get('/search', [CourseController::class, 'search'])->name('courses.search');
     
     // Tambahkan route untuk detail course
     Route::get('/courses/{course}', [CourseController::class, 'show'])->name('courses.show');
 
-    // Tasks
-    Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
+    // Tasks routes
+    Route::controller(TaskController::class)->group(function () {
+        Route::get('/tasks', 'index')->name('tasks.index');
+        Route::get('/tasks/{task}', 'show')->name('tasks.show');
+        Route::post('/tasks/{task}/submit', 'submit')->name('tasks.submit');
+        Route::delete('/tasks/{task}/submission', 'deleteSubmission')->name('tasks.delete-submission');
+    });
 
     // Classroom
     Route::get('/classroom/{id}', [ClassroomController::class, 'show'])->name('classroom.show');
@@ -95,6 +142,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/tasks/{task}/upload', [TaskController::class, 'upload'])->name('tasks.upload');
     Route::get('/tasks/{task}/download', [TaskController::class, 'download'])->name('tasks.download');
     Route::delete('/tasks/{task}/file', [TaskController::class, 'deleteFile'])->name('tasks.delete-file');
+    Route::post('/tasks/{task}/submit', [TaskController::class, 'submit'])->name('tasks.submit');
+    Route::delete('/tasks/{task}/submission', [TaskController::class, 'deleteSubmission'])->name('tasks.delete-submission');
 
     // Class routes
     Route::resource('classes', ClassController::class);
@@ -131,5 +180,58 @@ Route::get('auth/google/callback', [SocialAuthController::class, 'handleGoogleCa
 Route::get('/materi', function () {
     return view('pages.materi');
 })->name('materi');
+
+Route::get('/kursus', function () {
+    return view('pages.kursus');
+});
+
+Route::get('/materi-mobile', function () {
+    return view('pages.materi-mobile');
+})->name('materi.mobile');
+
+Route::get('/materi-data-science', function () {
+    return view('pages.materi-data-science');
+})->name('materi.data-science');
+
+Route::get('/materi-cyber-security', function () {
+    return view('pages.materi-cyber-security');
+})->name('materi.cyber-security');
+
+Route::get('/materi-uiux', function () {
+    return view('pages.materi-uiux');
+})->name('materi.uiux');
+
+Route::get('/materi-cloud', function () {
+    return view('pages.materi-cloud');
+})->name('materi.cloud');
+
+Route::get('/materi-python', function () {
+    return view('pages.materi-python');
+})->name('materi.python');
+
+Route::get('/materi-os', function () {
+    return view('pages.materi-os');
+})->name('materi.os');
+
+Route::get('/materi-ai', function () {
+    return view('pages.materi-ai');
+})->name('materi.ai');
+
+// Admin routes
+Route::middleware(['auth:admin'])->group(function () {
+    Route::prefix('admin')->name('admin.')->group(function () {
+        Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+        Route::resource('tasks', AdminTaskController::class);
+        
+        // Grade routes
+        Route::post('/grades', [GradeController::class, 'store'])->name('grades.store');
+        Route::delete('/grades/{grade}', [GradeController::class, 'destroy'])->name('grades.destroy');
+    });
+});
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    // ... route lainnya ...
+    Route::get('/admin/tasks/{task}', [TaskController::class, 'show'])->name('admin.tasks.show');
+});
 
 require __DIR__.'/auth.php';

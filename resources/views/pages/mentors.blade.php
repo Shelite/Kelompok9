@@ -19,7 +19,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Web Development Mentors -->
             <div class="mentor-card bg-white rounded-lg overflow-hidden shadow-lg" data-category="web">
-                <img src="https://source.unsplash.com/400x400/?professional-man-1" alt="Ahmad Fadillah" class="w-full h-64 object-cover">
+                <img src="{{ asset('img/foto-mentor.png') }}" alt="Ahmad Fadillah" class="w-full h-64 object-cover">
                 <div class="p-6">
                     <h3 class="text-xl font-semibold mb-2">Ahmad Fadillah</h3>
                     <p class="text-indigo-600 mb-2">Senior Web Developer</p>
@@ -33,7 +33,7 @@
             </div>
 
             <div class="mentor-card bg-white rounded-lg overflow-hidden shadow-lg" data-category="web">
-                <img src="https://source.unsplash.com/400x400/?professional-woman-1" alt="Sarah Wilson" class="w-full h-64 object-cover">
+                <img src="{{ asset('img/foto-mentor.png') }}" alt="Sarah Wilson" class="w-full h-64 object-cover">
                 <div class="p-6">
                     <h3 class="text-xl font-semibold mb-2">Sarah Wilson</h3>
                     <p class="text-indigo-600 mb-2">Full Stack Developer</p>
@@ -48,7 +48,7 @@
 
             <!-- Mobile Development Mentors -->
             <div class="mentor-card bg-white rounded-lg overflow-hidden shadow-lg" data-category="mobile">
-                <img src="https://source.unsplash.com/400x400/?professional-man-2" alt="Budi Santoso" class="w-full h-64 object-cover">
+                <img src="{{ asset('img/foto-mentor.png') }}" alt="Budi Santoso" class="w-full h-64 object-cover">
                 <div class="p-6">
                     <h3 class="text-xl font-semibold mb-2">Budi Santoso</h3>
                     <p class="text-indigo-600 mb-2">Mobile Development Lead</p>
@@ -62,7 +62,7 @@
             </div>
 
             <div class="mentor-card bg-white rounded-lg overflow-hidden shadow-lg" data-category="mobile">
-                <img src="https://source.unsplash.com/400x400/?professional-woman-2" alt="Jessica Lee" class="w-full h-64 object-cover">
+                <img src="{{ asset('img/foto-mentor.png') }}" alt="Jessica Lee" class="w-full h-64 object-cover">
                 <div class="p-6">
                     <h3 class="text-xl font-semibold mb-2">Jessica Lee</h3>
                     <p class="text-indigo-600 mb-2">iOS Developer</p>
@@ -77,7 +77,7 @@
 
             <!-- Data Science Mentors -->
             <div class="mentor-card bg-white rounded-lg overflow-hidden shadow-lg" data-category="data">
-                <img src="https://source.unsplash.com/400x400/?professional-man-3" alt="Dr. Rudi Wijaya" class="w-full h-64 object-cover">
+                <img src="{{ asset('img/foto-mentor.png') }}" alt="Dr. Rudi Wijaya" class="w-full h-64 object-cover">
                 <div class="p-6">
                     <h3 class="text-xl font-semibold mb-2">Dr. Rudi Wijaya</h3>
                     <p class="text-indigo-600 mb-2">Data Science Lead</p>
@@ -91,7 +91,7 @@
             </div>
 
             <div class="mentor-card bg-white rounded-lg overflow-hidden shadow-lg" data-category="data">
-                <img src="https://source.unsplash.com/400x400/?professional-woman-3" alt="Maya Putri" class="w-full h-64 object-cover">
+                <img src="{{ asset('img/foto-mentor.png') }}" alt="Maya Putri" class="w-full h-64 object-cover">
                 <div class="p-6">
                     <h3 class="text-xl font-semibold mb-2">Maya Putri</h3>
                     <p class="text-indigo-600 mb-2">AI Research Scientist</p>
@@ -106,7 +106,7 @@
 
             <!-- UI/UX Design Mentors -->
             <div class="mentor-card bg-white rounded-lg overflow-hidden shadow-lg" data-category="design">
-                <img src="https://source.unsplash.com/400x400/?professional-woman-4" alt="Linda Kusuma" class="w-full h-64 object-cover">
+                <img src="{{ asset('img/foto-mentor.png') }}" alt="Linda Kusuma" class="w-full h-64 object-cover">
                 <div class="p-6">
                     <h3 class="text-xl font-semibold mb-2">Linda Kusuma</h3>
                     <p class="text-indigo-600 mb-2">Senior UX Designer</p>
@@ -120,7 +120,7 @@
             </div>
 
             <div class="mentor-card bg-white rounded-lg overflow-hidden shadow-lg" data-category="design">
-                <img src="https://source.unsplash.com/400x400/?professional-man-4" alt="David Chen" class="w-full h-64 object-cover">
+                <img src="{{ asset('img/foto-mentor.png') }}" alt="David Chen" class="w-full h-64 object-cover">
                 <div class="p-6">
                     <h3 class="text-xl font-semibold mb-2">David Chen</h3>
                     <p class="text-indigo-600 mb-2">UI/UX Lead</p>
@@ -166,4 +166,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 @endpush
-@endsection 
+@endsection
